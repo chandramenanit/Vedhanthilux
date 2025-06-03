@@ -1,0 +1,284 @@
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <>
+      <header className="luxury-header">
+        <div className="header-content">
+          <a href="#" className="logo">
+            Vedha <span className="logo-accent">Hub</span>
+          </a>
+          
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav">
+            <ul className="nav-menu">
+              <li><a href="/" className="nav-link">Home</a></li>
+              <li><a href="/AboutSection" className="nav-link">About</a></li>
+              <li><a href="/RoomsPage" className="nav-link">Our Rooms</a></li>
+              <li><a href="/BlogSection" className="nav-link">Blog</a></li>
+              <li><a href="/Footer" className="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+          
+          {/* Desktop Reservation Button */}
+          <button className="reservation-btn desktop-reservation">
+            RESERVATION
+          </button>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="mobile-menu-btn"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        
+        {/* Mobile Navigation Overlay */}
+        <div className={`mobile-nav-overlay ${isMenuOpen ? 'active' : ''}`}>
+          <nav className="mobile-nav">
+            <ul className="mobile-nav-menu">
+              <li><a href="/" className="mobile-nav-link" onClick={closeMenu}>Home</a></li>
+              <li><a href="/AboutSection" className="mobile-nav-link" onClick={closeMenu}>About</a></li>
+              <li><a href="/RoomsPage" className="mobile-nav-link" onClick={closeMenu}>Our Rooms</a></li>
+              <li><a href="/BlogSection" className="mobile-nav-link" onClick={closeMenu}>Blog</a></li>
+              <li><a href="/Footer" className="mobile-nav-link" onClick={closeMenu}>Contact</a></li>
+            </ul>
+            <button className="mobile-reservation-btn" onClick={closeMenu}>
+              RESERVATION
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <style jsx>{`
+        .luxury-header {
+          position: relative;
+          background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+          padding: 1rem 0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        }
+
+        .header-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 2rem;
+        }
+
+        .logo {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: #fff;
+          text-decoration: none;
+          letter-spacing: 1px;
+        }
+
+        .logo-accent {
+          color: #ffd700;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+          display: block;
+        }
+
+        .nav-menu {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: 2rem;
+        }
+
+        .nav-link {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .nav-link:hover {
+          color: #ffd700;
+        }
+
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -5px;
+          left: 0;
+          background: #ffd700;
+          transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+          width: 100%;
+        }
+
+        .reservation-btn, .mobile-reservation-btn {
+          background: linear-gradient(45deg, #ffd700, #ffed4e);
+          color: #1a1a2e;
+          border: none;
+          padding: 0.8rem 1.5rem;
+          font-weight: bold;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          letter-spacing: 1px;
+        }
+
+        .reservation-btn:hover, .mobile-reservation-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .desktop-reservation {
+          display: block;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(26, 26, 46, 0.95);
+          backdrop-filter: blur(10px);
+          z-index: 999;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-nav-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .mobile-nav {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          text-align: center;
+        }
+
+        .mobile-nav-menu {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          margin-bottom: 2rem;
+        }
+
+        .mobile-nav-menu li {
+          margin: 1.5rem 0;
+        }
+
+        .mobile-nav-link {
+          color: #fff;
+          text-decoration: none;
+          font-size: 1.4rem;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+          color: #ffd700;
+        }
+
+        .mobile-reservation-btn {
+          font-size: 1.1rem;
+          padding: 1rem 2rem;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+          .header-content {
+            padding: 0 1rem;
+          }
+
+          .logo {
+            font-size: 1.5rem;
+          }
+
+          .desktop-nav {
+            display: none;
+          }
+
+          .desktop-reservation {
+            display: none;
+          }
+
+          .mobile-menu-btn {
+            display: block;
+          }
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .nav-menu {
+            gap: 1.5rem;
+          }
+          
+          .reservation-btn {
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+          }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+          .header-content {
+            padding: 0 1rem;
+          }
+
+          .logo {
+            font-size: 1.3rem;
+          }
+
+          .mobile-nav-link {
+            font-size: 1.2rem;
+          }
+        }
+      `}</style>
+    </>
+  );
+};
+
+export default Header;

@@ -1,0 +1,250 @@
+.rooms-page {
+  min-height: 100vh;
+  background-color: #fafaf9; 
+  position: relative;
+  overflow: hidden;
+}
+
+.rooms-page > div:first-child {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+}
+
+.rooms-page > div:first-child svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rooms-page > div:nth-child(2) {
+  position: absolute;
+  top: 5rem;
+  left: 2.5rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: #d97706;
+  border-radius: 9999px;
+  opacity: 0.1;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.rooms-page > div:nth-child(3) {
+  position: absolute;
+  bottom: 5rem;
+  right: 2.5rem;
+  width: 6rem;
+  height: 6rem;
+  background-color: #d97706;
+  border-radius: 9999px;
+  opacity: 0.1;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 1s;
+}
+
+.rooms-page > div:nth-child(4) {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 4rem;
+  height: 4rem;
+  background-color: #d97706;
+  border-radius: 9999px;
+  opacity: 0.05;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0.5s;
+}
+
+header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+header h1 {
+  font-size: 3.75rem;
+  font-weight: 300;
+  color: #374151;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.025em;
+}
+
+header p {
+  color: #4b5563;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  max-width: 32rem;
+  margin: 0 auto 1rem;
+}
+
+.rooms-page > div:nth-child(6) {
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.rooms-page > div:nth-child(6) > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.group {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.group:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.5rem);
+}
+
+.group > div:first-child {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.group > div:first-child > div {
+  padding: 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover > div:first-child > div {
+  transform: scale(1.1);
+}
+
+.bg-blue-50 { background-color: #eff6ff; }
+.text-blue-600 { color: #2563eb; }
+.bg-purple-50 { background-color: #faf5ff; }
+.text-purple-600 { color: #9333ea; }
+.bg-green-50 { background-color: #f0fdf4; }
+.text-green-600 { color: #059669; }
+.bg-red-50 { background-color: #fef2f2; }
+.text-red-600 { color: #dc2626; }
+.bg-yellow-50 { background-color: #fffbeb; }
+.text-yellow-600 { color: #d97706; }
+.bg-amber-50 { background-color: #fff7ed; }
+.text-amber-600 { color: #d97706; }
+.bg-orange-50 { background-color: #fff7ed; }
+.text-orange-600 { color: #ea580c; }
+.bg-gray-50 { background-color: #f9fafb; }
+.text-gray-600 { color: #4b5563; }
+
+.group h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover h3 {
+  color: #111827;
+}
+
+.group p {
+  color: #4b5563;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+
+.group > div:last-child {
+  text-align: left;
+}
+
+.group a {
+  color: #d97706;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.group a:hover {
+  color: #b45309; 
+  text-decoration: underline; 
+}
+
+.group a svg {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover a svg {
+  transform: translateX(0.25rem);
+}
+
+.rooms-page > div:nth-child(7) {
+  position: absolute;
+  top: 33.333333%;
+  right: 25%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #fbbf24;
+  border-radius: 9999px;
+  opacity: 0.2;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.rooms-page > div:nth-child(8) {
+  position: absolute;
+  bottom: 33.333333%;
+  left: 33.333333%;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #fbbf24;
+  border-radius: 9999px;
+  opacity: 0.3;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 0.7s;
+}
+
+@media (min-width: 768px) {
+  .rooms-page > div:nth-child(6) > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .rooms-page > div:nth-child(6) > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .rooms-page > div:nth-child(6) > div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
