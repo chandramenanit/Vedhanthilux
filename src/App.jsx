@@ -3,7 +3,7 @@ import RoomsPage from './Header/RoomsPage';
 import BlogSection from './Header/BlogSection'
 import Footer from './Header/Footer';
 import './App.css';
-import Header from './Header/Header';
+
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HeroSection from './Header/HeroSection';

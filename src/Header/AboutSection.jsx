@@ -1,4 +1,4 @@
-import { Check, Award, Shield, Users, Star, Clock } from 'lucide-react';
+import { Award, Shield, Users, Star } from 'lucide-react';
 import "./AboutSection.css"
 import Header from './Header';
 

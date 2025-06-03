@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import "../Header/Footer.css";
 import Header from './Header';
 
@@ -114,11 +114,7 @@ const Footer = () => {
             © 2025, All Rights Reserved By <a href="#">chandramenane</a>
           </div>
           <div className="social-icons">
-            {[Facebook, Twitter, Instagram].map((Icon, idx) => (
-              <a href="#" key={idx} className="social-icon">
-                <Icon />
-              </a>
-            ))}
+           
           </div>
         </div>
       </div>
